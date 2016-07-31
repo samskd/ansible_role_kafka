@@ -5,7 +5,7 @@ This is the kafka role for ansible.
 Dependencies
 ------------
 - java
-- zookeeper
+- zookeeper (git+ssh://git@github.com:samskd/ansible_role_zookeeper.git)
 
 Usage
 -----
