@@ -1,0 +1,39 @@
+---
+# setup
+kafka_version: 0.10.0.0
+kafka_download_url: "http://apache.mirrors.tds.net/kafka/{{kafka_version}}/kafka_2.11-{{kafka_version}}.tgz"
+kafka_binary_archive: /opt/kafka_2.11-{{kafka_version}}.tgz
+kafka_binary_dir: /opt/kafka_2.11-{{kafka_version}}
+kafka_listen_address: "{{inventory_hostname}}"
+
+# Kafka configuration
+kafka_group: kafka
+kafka_user: kafka
+kafka_conf_dir: /etc/kafka
+kafka_data_dir: /var/kafka
+kafka_log_dir: /var/log/kafka
+kafka_upstart_conf: /etc/init/kafka.conf
+kafka_systemd_service: /etc/systemd/system/kafka.service
+kafka_auto_create_topics: "false"
+
+
+# Kafka defaults
+kafka_num_network_threads: 2
+kafka_num_io_threads: 2
+kafka_num_partitions: 2
+kafka_port: 9092
+kafka_socket_send_buffer_bytes: 1048576
+kafka_socket_receive_buffer_bytes: 1048576
+kafka_socket_request_max_bytes: 104857600
+kafka_log_flush_interval_messages: 10000
+kafka_log_flush_interval_ms: 1000
+kafka_log_retention_bytes: 104857600  #100 M
+kafka_log_retention_hours: 24
+kafka_log_segment_bytes: "{{kafka_log_retention_bytes}}"
+kafka_log_cleanup_interval_mins: 1
+kafka_heap_opts: "-Xmx1G -Xms1G"
+
+zookeeper_hosts: "localhost:2181"
+zookeeper_connection_timeout_ms: 1000000
+
+verify: True

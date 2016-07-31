@@ -1,0 +1,9 @@
+---
+- name: get kafka status
+  service: name=kafka state=running
+  ignore_errors: true
+  register: kafka_status
+
+- name: stop kafka
+  service: name=kafka state=stopped
+  when: kafka_status.state is defined and kafka_status.state.find('started') != -1
